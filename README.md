@@ -24,7 +24,7 @@ CardWall is a personal, local-first Android app. It has no account, analytics, a
 - Clears all access windows when the accessibility service or phone restarts.
 - Fails open with a visible warning if AnkiDroid is missing, unavailable, or cannot save a grade.
 
-The in-app gate has no skip or emergency bypass. Android still lets the device owner disable CardWall's accessibility service or uninstall CardWall.
+The optional **Show skip button** setting is off by default. When enabled, the gate offers **Skip** with a confirmation dialog. Confirming opens only the current app for its normal access-window duration and discards unfinished progress without grading the remaining cards. Canceling keeps the current card and review progress. The button is temporarily disabled while loading or saving a card. Android still lets the device owner disable CardWall's accessibility service or uninstall CardWall.
 
 ## Media limitation in v0.1
 

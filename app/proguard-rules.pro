@@ -1,0 +1,2 @@
+-keep class fr.cosmith.cardwall.** { *; }
+-dontwarn org.intellij.lang.annotations.**

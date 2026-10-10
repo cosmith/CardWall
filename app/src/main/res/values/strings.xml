@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CardWall</string>
+    <string name="accessibility_service_description">Shows an Anki flashcard gate before configured distracting apps.</string>
+    <string name="accessibility_service_summary">CardWall watches which app is in the foreground and covers configured apps with a flashcard review gate.</string>
+    <string name="close_app">Close app</string>
+    <string name="show_skip_button">Show skip button</string>
+    <string name="skip_setting_description">Allow skipping the review screen after confirmation. Off by default.</string>
+    <string name="skip_gate">Skip</string>
+    <string name="keep_reviewing">Keep reviewing</string>
+    <string name="skip_confirmation_title">Skip this review session?</string>
+    <string name="skip_confirmation_message" tools:ignore="PluralsCandidate">Open %1$s for %2$d min without completing the remaining reviews? Skipped cards will not be marked as reviewed.</string>
+    <string name="review_progress" tools:ignore="PluralsCandidate">%1$d of %2$d reviewed</string>
+</resources>
