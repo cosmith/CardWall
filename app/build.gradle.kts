@@ -15,8 +15,8 @@ android {
         applicationId = "fr.cosmith.cardwall"
         minSdk = 35
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.1.3"
+        versionCode = providers.gradleProperty("cardwallVersionCode").orNull?.toInt() ?: 4
+        versionName = providers.gradleProperty("cardwallVersionName").orNull ?: "0.1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -86,4 +86,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
 }
