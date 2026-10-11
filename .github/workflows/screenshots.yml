@@ -47,9 +47,9 @@ jobs:
           script: |
             adb shell settings put system font_scale 1.0
             adb shell cmd uimode night no
-            adb install -r app/build/outputs/apk/debug/app-debug.apk
-            adb install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-            adb shell am instrument -w fr.cosmith.cardwall.test/androidx.test.runner.AndroidJUnitRunner | tee "$RUNNER_TEMP/screenshot-tests.txt"
+            timeout 120 adb install --no-streaming -r -t app/build/outputs/apk/debug/app-debug.apk
+            timeout 120 adb install --no-streaming -r -t app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+            timeout 120 adb shell am instrument -w -e class fr.cosmith.cardwall.ScreenshotsTest fr.cosmith.cardwall.test/androidx.test.runner.AndroidJUnitRunner | tee "$RUNNER_TEMP/screenshot-tests.txt"
             grep -q 'OK (1 test)' "$RUNNER_TEMP/screenshot-tests.txt"
             mkdir -p screenshots
             adb pull /sdcard/Android/data/fr.cosmith.cardwall/files/screenshots/. screenshots/
