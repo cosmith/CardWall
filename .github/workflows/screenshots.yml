@@ -29,6 +29,10 @@ jobs:
           packages: platform-tools
       - name: Install build SDK
         run: sdkmanager "platforms;android-36" "build-tools;37.0.0"
+      - name: Free space for the emulator
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc "$ANDROID_HOME/ndk"
+          df -h /home/runner
       - name: Build screenshot test APKs
         run: ./gradlew --no-daemon assembleDebug assembleDebugAndroidTest
       - name: Enable KVM
@@ -44,6 +48,7 @@ jobs:
           arch: x86_64
           profile: pixel_7
           disable-animations: true
+          emulator-boot-timeout: 300
           script: |
             adb shell settings put system font_scale 1.0
             adb shell cmd uimode night no
