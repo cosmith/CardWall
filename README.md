@@ -1,130 +1,128 @@
-<div align="center">
-
 # CardWall
 
-### A small pause before the scroll.
-
-Turn the apps you open on autopilot into a few moments of learning.
+CardWall is an Android app that asks you to review AnkiDroid flashcards before
+you can use selected apps. By default, you review three cards to get ten minutes
+of access. You choose the apps, decks, number of reviews, and access time.
 
 [![Android CI](https://github.com/cosmith/CardWall/actions/workflows/android.yml/badge.svg)](https://github.com/cosmith/CardWall/actions/workflows/android.yml)
 [![Release APK](https://github.com/cosmith/CardWall/actions/workflows/release.yml/badge.svg)](https://github.com/cosmith/CardWall/actions/workflows/release.yml)
 
-[**Download an APK**](https://github.com/cosmith/CardWall/releases) · [Setup guide](INSTALL.md) · [Report a bug](https://github.com/cosmith/CardWall/issues)
-
-</div>
-
-You open a distracting app. CardWall asks you to review a few cards from your
-AnkiDroid decks first. Finish your reviews, and the app opens for a short window.
-
-**Three cards. Ten minutes. Your decks. Your choice of apps.**
+[Releases](https://github.com/cosmith/CardWall/releases) |
+[Installation guide](INSTALL.md) |
+[Report a bug](https://github.com/cosmith/CardWall/issues)
 
 > [!WARNING]
-> **CardWall is purely vibe-coded.** This is an experimental personal project built
-> with AI-generated code. Expect bugs; it has not been independently security-audited.
-> It writes real review grades to AnkiDroid, so **back up your Anki collection before
-> using it**. Use at your own risk.
+> **CardWall is purely vibe-coded.** It is an experimental project built with
+> AI-generated code. It may contain bugs and hasn't had an independent security
+> audit. CardWall writes review grades to AnkiDroid, so back up your collection
+> before using it.
 
-## See it in action
+## Screenshots
 
-| Review a card | Reveal and grade | Make it yours |
+| Question | Answer and grades | Settings |
 | :---: | :---: | :---: |
 | <img src="docs/screenshots/question.png" alt="CardWall question screen with review progress and optional Skip button" width="240"> | <img src="docs/screenshots/answer.png" alt="CardWall answer screen with Again, Hard, Good, and Easy grading buttons" width="240"> | <img src="docs/screenshots/settings.png" alt="CardWall setup and settings screen" width="240"> |
 
-*Actual app UI captured in an Android emulator. Review screens use a sample
-Italian card; settings show initial setup.*
+The screenshots show the app running in an Android emulator. The review screens
+use a sample Italian card, and the settings screen shows initial setup.
 
 ## How it works
 
-1. **Choose the apps that pull you in.** Gate social feeds, video apps, or other
-   distractions you want a little more space from.
-2. **Choose what you want to remember.** Pick your AnkiDroid decks. Selecting a
-   parent deck includes all its subdecks, including ones you add later.
-3. **Review before you scroll.** Reveal the answer and grade it with Anki's familiar
-   Again, Hard, Good, and Easy buttons. Every submitted grade counts.
-4. **Get a little time back in the app.** Complete the target and the gate disappears.
-   When the access window expires, it's time for another short review.
+1. Choose which apps require a review before use, then choose your AnkiDroid decks.
+   Selecting a parent deck includes its subdecks, including any you add later.
+2. Open a selected app to start a review session. Reveal each answer and grade it
+   with Anki's Again, Hard, Good, or Easy button. Every submitted grade counts
+   toward the required number of reviews.
+3. Finish the required reviews to use the app for the time you've set.
+   Each app has its own access period, and time keeps passing when you switch apps
+   or lock the screen.
+4. After the access period ends, CardWall requires another review session before
+   you can use the app.
 
-There is no separate collection to maintain and no new learning account to create.
-CardWall works with the cards you already use in AnkiDroid.
+CardWall uses your existing AnkiDroid collection and saves the grades you submit
+back to AnkiDroid. You don't need a separate collection or account.
 
-## Make the pause your own
+## Settings
 
-| Setting | Default | What you control |
+| Setting | Default | Options |
 | --- | --- | --- |
-| Reviews to unlock | 3 cards | 1–20 reviews per session |
-| Access window | 10 minutes | 1–120 minutes of access per app |
-| Apps | Your selection | Which installed apps are gated |
-| Decks | Your selection | Which deck branches to review |
-| Skip button | Off | Optional skip with an explicit confirmation |
+| Reviews to unlock | 3 cards | 1 to 20 reviews per session |
+| Access window | 10 minutes | 1 to 120 minutes per app |
+| Apps | Your selection | Choose which installed apps require reviews |
+| Decks | Your selection | Choose which decks and subdecks to review |
+| Show skip button | Off | Show or hide the optional Skip button |
 
-Each app has its own access window. Time keeps passing when you switch apps or
-lock the screen. Leaving an unfinished review session discards its progress.
+When you enable Show skip button, you can skip a review session after confirming
+in a dialog. Skipping gives you the usual access time without grading the current
+card. Canceling the dialog returns you to the same card.
 
-With **Show skip button** enabled, **Skip** asks for confirmation before opening
-the current app for the normal access window. Skipped cards are not graded.
-Canceling brings you back to the same card.
+Unfinished review progress is discarded when you leave the app or lock the screen.
+Access periods are cleared when the accessibility service or phone restarts.
 
-## Get started
+## Installation
 
-CardWall is a sideloaded Android app. The intended device is a **Pixel running
-Android 17**; other devices and Android versions are not validated.
+CardWall is intended for a Pixel running Android 17. Other devices and Android
+versions haven't been validated. You install CardWall from an APK file, outside
+the Play Store.
 
-1. Install and set up [AnkiDroid](https://ankidroid.org/), then sync or import your decks.
-2. Download the APK from [GitHub Releases](https://github.com/cosmith/CardWall/releases)
-   and install it. Android may ask you to allow installation from your browser or Files app.
-3. Open CardWall, grant access to your AnkiDroid collection, and choose your decks and apps.
-4. Enable CardWall in **Android Settings → Accessibility**.
-5. Open one of your selected apps and try your first review.
+1. Install [AnkiDroid](https://ankidroid.org/) and sync or import your decks.
+2. Install a CardWall APK from [GitHub Releases](https://github.com/cosmith/CardWall/releases).
+   Android may ask you to allow installation from your browser or Files app.
+   If no APK is available, see the build instructions below.
+3. Open CardWall and grant access to your AnkiDroid collection. Choose your decks
+   and apps in the settings.
+4. Enable CardWall in Android Settings under Accessibility, then open a selected
+   app to try a review session.
 
-See the [step-by-step installation and smoke-test guide](INSTALL.md) if you get stuck.
-New signed releases can update an existing installation without uninstalling it.
+The [installation guide](INSTALL.md) includes setup checks and troubleshooting.
+Updates signed with the same key can replace an existing installation without
+uninstalling it.
 
-## Local by design
+## Privacy and permissions
 
-- **No account, ads, analytics, or cloud backend.**
-- **No internet permission.** Remote requests from flashcards are blocked.
-- **Your decks stay in AnkiDroid.** CardWall reads cards through its collection API
-  and writes back the grades you actually submit.
-- **Foreground detection, not screen reading.** The accessibility service observes
-  which app is foreground; it does not request access to other apps' view contents.
+CardWall has no ads, analytics, or cloud backend. It doesn't request internet
+permission, and it blocks remote requests from flashcards. Your collection stays
+in AnkiDroid, while CardWall stores its settings on your device.
 
-## What to know before relying on it
+The accessibility service detects which app you're using so it can show the
+review screen. It doesn't request access to the contents of other apps' screens.
+You can disable the service or uninstall CardWall in Android settings at any time.
 
-- **It is a nudge you control.** You can turn off the accessibility service or
-  uninstall CardWall in Android settings at any time.
-- **Nothing due?** CardWall falls back to random eligible cards. Those have a
-  single **Reviewed** button and do not change the card's schedule.
-- **AnkiDroid unavailable?** CardWall allows access and shows a warning rather than
-  trapping you behind a broken review screen. This also happens if a grade cannot be saved.
-- **Text first.** HTML, CSS, and card JavaScript are preserved, but images, video,
-  and audio are currently replaced with placeholders.
-- **Temporary sessions.** Unfinished progress is discarded when you leave or lock
-  the screen. Access windows are cleared when the service or phone restarts.
-- **Early software.** Automated checks and emulator screenshots do not replace
-  testing the Anki integration and accessibility behavior on your own device.
+## Limitations
 
-## Build or contribute
+- When no cards are due, CardWall shows random eligible cards with a Reviewed
+  button. Reviewing them doesn't change their schedules.
+- If AnkiDroid is unavailable or a grade can't be saved, CardWall allows access
+  to the app and shows a warning.
+- Cards keep their HTML, CSS, and JavaScript, but images, video, and audio are
+  replaced with placeholders.
+- Automated checks and emulator screenshots don't verify the AnkiDroid integration
+  or accessibility behavior on your phone. Test both before relying on CardWall.
 
-The app is written in Kotlin: Compose for settings, a native accessibility overlay
-for the gate, and a WebView for flashcards. Preferences stay on-device;
-review progress and access windows stay in memory.
+## Build and contribute
 
-With **JDK 17**, **Android SDK 36**, and **Build Tools 37.0.0** installed:
+CardWall is written in Kotlin. It uses Compose for settings, a native Android
+view for the review screen, and a WebView to display flashcards.
+
+Install JDK 17, Android SDK 36, and Build Tools 37.0.0, then run:
 
 ```bash
 ./gradlew testDebugUnitTest lintDebug assembleDebug
 ```
 
-The debug APK is in `app/build/outputs/apk/debug/`. For a local signed release,
-copy `signing.properties.example` to `signing.properties`, fill in your private
-keystore details, and run `./gradlew assembleRelease`. Never commit the keystore
-or its passwords. Use the original release key to update an existing installation.
+The debug APK is saved in `app/build/outputs/apk/debug/`.
 
-Every push to `main` runs the [release workflow](.github/workflows/release.yml),
-which tests, builds, signs, and publishes an APK with a checksum and a commit-specific
-tag. **The repository's signing secrets must be configured before downloads can
-be published.** See [release setup and screenshot capture](docs/RELEASING.md).
+For a signed release, copy `signing.properties.example` to `signing.properties`
+and enter your keystore details. Run `./gradlew assembleRelease` to build the APK.
+Use the original release key to update an existing installation, and never commit
+the keystore or its passwords.
 
-Found a rough edge? [Open an issue](https://github.com/cosmith/CardWall/issues)
-with your Android version, AnkiDroid version, what you expected, and what happened.
-Avoid including private card content in screenshots or logs.
+Every push to `main` starts the [release workflow](.github/workflows/release.yml).
+The workflow runs tests and lint, then builds and signs the APK. It publishes the
+APK to GitHub Releases with a checksum and a tag identifying the commit. Publishing
+requires the repository's signing secrets. See the [release setup guide](docs/RELEASING.md)
+for instructions and details on capturing screenshots.
+
+To [report a bug](https://github.com/cosmith/CardWall/issues), include your Android
+and AnkiDroid versions, what you expected, and what happened. Remove private card
+content from screenshots and logs before sharing them.
